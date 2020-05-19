@@ -1,0 +1,77 @@
+<h1>{{ title }}</h1>
+
+<ol>
+  <li>
+    Use a built-in pipe to show a percentage with three decimals
+    <table>
+      <tr>
+        <th>Value</th>
+        <th>Output applying pipe</th>
+      </tr>
+      <tr>
+        <td>0.1234</td>
+        <td>{{ 0.1234 | percent: "0.3-3" }}</td>
+      </tr>
+    </table>
+  </li>
+  <li>
+    Use a built-in pipes to show a date this way: 21 FRI, MARCH, 1969 || 12:0:0
+    AM
+    <table>
+      <tr>
+        <th>Value</th>
+        <th>Output applying pipe</th>
+      </tr>
+      <tr>
+        <td>{{ dateInMilisec }}</td>
+        <td>
+          {{ dateInMilisec | date: "d EEE, MMMM, y || h:m:s a" | uppercase }}
+        </td>
+      </tr>
+    </table>
+  </li>
+  <li>
+    Use a custom pipe to show a given time (seconds) in minutes and seconds
+    <table>
+      <tr>
+        <th>Value</th>
+        <th>Output applying pipe</th>
+      </tr>
+      <tr>
+        <td>{{ timeInSecs0 }}</td>
+        <td>
+          {{ timeInSecs0 | minsec0 }}
+        </td>
+      </tr>
+    </table>
+  </li>
+  <li>
+    Use a custom pipe to show a given time (seconds) in minutes and seconds
+    adding by default 0 if needed. The pipe must have an optional parameter to
+    indicate if we want the 0 in the left
+    <table>
+      <tr>
+        <th>Values</th>
+        <th>Output applying pipe</th>
+      </tr>
+      <tr>
+        <td>{{ timeInSecs0 }}</td>
+        <td>
+          {{ timeInSecs0 | minsec0 }}
+        </td>
+      </tr>
+      <tr>
+        <td>{{ timeInSecs0 }} false</td>
+        <td>
+          {{ timeInSecs0 | minsec0: false }}
+        </td>
+      </tr>
+      <tr>
+        <td>{{ timeInSecs1 }} true</td>
+        <td>
+          {{ timeInSecs1 | minsec0: true }}
+        </td>
+      </tr>
+    </table>
+  </li>
+</ol>
